@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Array para contar ocurrencias de cada suma, de 2 a 12
+const conteos = Array(13).fill(0); 
+
+// Función para simular el lanzamiento de un dado (1 a 6)
+const lanzarDado = () => Math.floor(Math.random() * 6) + 1;
+
+// Realizar 36,000 lanzamientos
+for (let i = 0; i < 36000; i++) {
+    const suma = lanzarDado() + lanzarDado();
+    conteos[suma]++;
+}
+
+// Mostrar los resultados
+console.log("Resultados de los lanzamientos:");
+conteos.slice(2).forEach((conteo, suma) => {
+    console.log(`Suma ${suma + 2}: ${conteo} veces`);
+});
+
+
+    </script>
+</body>
+
+</html>

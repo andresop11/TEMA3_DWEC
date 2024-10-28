@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Array de ejemplo (en caso de que ya haya algunos estudiantes)
+const clase = [
+    "Angel Garcia, 20, 6, 7, 10",
+    "Maria Lopez, 22, 8, 9, 10",
+    "Juan Perez, 21, 5, 6, 7"
+];
+
+// Función para calcular la edad media de los estudiantes
+function edadMedia() {
+    // Comprobar que el array no esté vacío
+    if (clase.length === 0) {
+        return "No hay estudiantes en la clase";
+    }
+
+    // Acumulador para la suma de edades
+    let sumaEdades = 0;
+
+    // Recorrer cada estudiante para sumar sus edades
+    clase.forEach(estudiante => {
+        const datos = estudiante.split(", ");
+        const edad = parseInt(datos[1], 10); // Obtener la edad y convertirla a número
+        sumaEdades += edad;
+    });
+
+    // Calcular la media y devolver el resultado
+    const media = sumaEdades / clase.length;
+    return media.toFixed(2); // Devolver la media con dos decimales
+}
+
+// Ejemplo de uso:
+console.log(`La edad media de la clase es: ${edadMedia()} años`);
+
+    </script>
+</body>
+</html>

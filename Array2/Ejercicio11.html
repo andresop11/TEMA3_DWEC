@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen de Ventas</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resumen de Ventas</h1>
+    <table id="tablaVentas">
+        <thead>
+            <tr>
+                <th>Producto/Vendedor</th>
+                <th>Vendedor 1</th>
+                <th>Vendedor 2</th>
+                <th>Vendedor 3</th>
+                <th>Vendedor 4</th>
+                <th>Total Producto</th>
+            </tr>
+        </thead>
+        <tbody id="cuerpoVentas"></tbody>
+        <tfoot id="pieVentas"></tfoot>
+    </table>
+
+    <script>
+        // Inicializar la matriz de ventas: 5 productos y 4 vendedores
+        const ventas = Array(5).fill().map(() => Array(4).fill(0));
+
+        // Datos de ventas (vendedor, producto, valor)
+        const datosVentas = [
+            [1, 1, 100], [1, 2, 150],
+            [2, 1, 200], [3, 2, 250],
+            [4, 1, 300], [1, 3, 400],
+            [2, 3, 450], [3, 3, 500],
+            [4, 4, 600], [1, 5, 700],
+            [2, 5, 800], [3, 4, 900],
+            [4, 5, 1000]
+        ];
+
+        // Procesar los datos de ventas
+        for (const [vendedor, producto, valor] of datosVentas) {
+            ventas[producto - 1][vendedor - 1] += valor; // Ajustar índices (0 base)
+        }
+
+        // Mostrar los resultados en la tabla
+        let totalPorVendedor = Array(4).fill(0); // Total de ventas por vendedor
+        const cuerpoVentas = document.getElementById("cuerpoVentas");
+
+        for (let i = 0; i < ventas.length; i++) {
+            const fila = document.createElement("tr"); // Crear nueva fila
+            const totalProducto = ventas[i].reduce((a, b) => a + b, 0); // Sumar las ventas del producto
+
+            fila.innerHTML = `<td>Producto ${i + 1}</td>`; // Nombre del producto
+            ventas[i].forEach((venta, indice) => {
+                fila.innerHTML += `<td>${venta}</td>`; // Ventas por vendedor
+                totalPorVendedor[indice] += venta; // Sumar a total por vendedor
+            });
+            fila.innerHTML += `<td>${totalProducto}</td>`; // Total del producto
+            cuerpoVentas.appendChild(fila); // Añadir la fila al cuerpo de la tabla
+        }
+
+        // Mostrar totales por vendedor en el pie de la tabla
+        const filaTotales = document.createElement("tr");
+        filaTotales.innerHTML = `<td>Total Vendedor</td>`;
+        totalPorVendedor.forEach(total => {
+            filaTotales.innerHTML += `<td>${total}</td>`; // Mostrar total por vendedor
+        });
+        pieVentas.appendChild(filaTotales); // Añadir la fila de totales al pie de la tabla
+    </script>
+</body>
+</html>

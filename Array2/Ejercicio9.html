@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Crear un array bidimensional 6x6 para contar las combinaciones de lanzamientos
+const combinaciones = [];
+for (let i = 0; i < 6; i++) {
+    combinaciones[i] = [0, 0, 0, 0, 0, 0]; // Inicializa cada fila con seis ceros
+}
+
+// Función para simular el lanzamiento de un dado (retorna un valor entre 1 y 6)
+function lanzarDado() {
+    return Math.floor(Math.random() * 6) + 1;
+}
+
+// Realizar 36,000 lanzamientos
+for (let i = 0; i < 36000; i++) {
+    const dado1 = lanzarDado();
+    const dado2 = lanzarDado();
+    combinaciones[dado1 - 1][dado2 - 1]++; // Ajusta a índice 0-5 y cuenta la combinación
+}
+
+// Mostrar los resultados en una tabla
+console.log("Tabla de combinaciones de lanzamientos:");
+console.log("Dado 1 \\ Dado 2 |  1     2     3     4     5     6");
+console.log("----------------------------------------------------");
+
+for (let i = 0; i < 6; i++) {
+    let fila = `         ${i + 1}       |`;
+    for (let j = 0; j < 6; j++) {
+        fila += combinaciones[i][j].toString().padStart(5) + " "; // Alinea cada valor
+    }
+    console.log(fila);
+}
+
+    </script>
+</body>
+</html>

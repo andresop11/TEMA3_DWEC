@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // a) Establecer los 10 elementos del array a cero
+        function inicializarArray() {
+            return Array(10).fill(0);
+        }
+
+        // b) Añadir 1 a cada uno de los elementos del array 
+        function incrementarArray(array) {
+            for (let i = 0; i < array.length; i++) {
+                array[i] += 1;
+            }
+            return array;
+        }
+
+        // c) Mostrar los valores del array separados por espacios
+        function mostrarArray(array) {
+            console.log(array.join(" "));
+        }
+
+
+        let array = inicializarArray();     // Inicializar array a ceros
+        array = incrementarArray(array);     // Incrementar cada elemento en 1
+        mostrarArray(array);                 // Mostrar elementos separados por espacios
+
+    </script>
+</body>
+
+</html>

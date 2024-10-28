@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Array de ejemplo (en caso de que ya haya algunos estudiantes)
+const clase = [
+    "Angel Garcia, 20, 6, 7, 10",
+    "Maria Lopez, 22, 8, 9, 10",
+    "Juan Perez, 21, 5, 6, 7"
+];
+
+// Función para obtener la nota de un estudiante
+function obtenerNota(indice, trimestre = null) {
+    // Validar que el índice esté dentro del rango
+    if (indice < 0 || indice >= clase.length) {
+        return "El número de estudiante no es válido";
+    }
+
+    // Obtener el estudiante y separar sus datos
+    const datos = clase[indice].split(", ");
+    const nota1 = parseFloat(datos[2]);
+    const nota2 = parseFloat(datos[3]);
+    const nota3 = parseFloat(datos[4]);
+
+    // Devolver la nota según el trimestre indicado
+    if (trimestre === 1) {
+        return nota1;
+    } else if (trimestre === 2) {
+        return nota2;
+    } else if (trimestre === 3) {
+        return nota3;
+    } else if (trimestre === null) {
+        // Si no se especifica trimestre, devolver la media
+        return ((nota1 + nota2 + nota3) / 3).toFixed(2);
+    } else {
+        return "El trimestre indicado no es válido";
+    }
+}
+
+
+let indice=parseInt(prompt("Introduceme el numero del alumno que quieres saber su nota"));
+let trimestre=parseInt(prompt("Introduceme el trimestre del que quieres saber su nota")); 
+// Ejemplos de uso:
+console.log(obtenerNota(indice, trimestre));  // Nota del primer trimestre del primer estudiante
+console.log(obtenerNota(indice));     // Nota media del segundo estudiante
+
+
+    </script>
+</body>
+</html>
