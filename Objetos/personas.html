@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const persona = {
+        nombre: "Juan",
+        edad: 20,
+        mayorEdad: function () {
+          return this.edad >= 18;
+        },
+      };
+
+      console.log("Nombre: " + persona.nombre);
+      console.log("Edad: " + persona.edad);
+      console.log("Mayor de edad: " + persona.mayorEdad());
+
+      //Funcion constructora
+      function Persona2(nombre, edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+
+        this.mayorEdad = function () {
+          return this.edad >= 18;
+        };
+      }
+
+      let objPersona1 = new Persona2("Andres", "23");
+      let objPersona2 = new Persona2("Miriam", "22");
+      let objPersona3= new Persona2("Mari",56); 
+
+      console.log(objPersona3);
+
+      let arrPersona = [
+        new Persona2("Migue", 23),
+        new Persona2("Boti", 56),
+        new Persona2("Eva", 11),
+      ];
+      console.log(arrPersona);
+
+      //function que reciba el array y devuelva la edad promedio
+
+      function edadPromedio(array) {
+        const sumaEdades = array.reduce((suma, array) => suma + array.edad, 0);
+        return sumaEdades / array.length;
+      }
+
+      console.log(edadPromedio(arrPersona)); 
+    </script>
+  </body>
+</html>

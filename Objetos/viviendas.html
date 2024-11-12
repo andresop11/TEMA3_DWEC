@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function vivienda(calle,numero,codigoPostal){
+            this.calle=calle; 
+            this.numero=numero;
+            this.codigoPostal=codigoPostal; 
+
+            //Actualizar los datos de la casa
+            this.setNumero=function(nuevoNumero){
+                this.numero=nuevoNumero; 
+            }
+
+            this.setCalle=function(nuevaCalle){
+                this.calle=nuevaCalle; 
+            }
+
+            this.setCodigoPostal=function(nuevocodigoPostal){
+                this.codigoPostal=nuevocodigoPostal; 
+            }
+
+            //Imprimir la informacion de la casa
+
+            this.imprimeCalle=function(){
+                return this.calle; 
+            }
+
+            this.imprimeNumero=function(){
+                return this.numero; 
+            }
+
+            this.imprimeCodigo=function(){
+                return this.codigoPostal; 
+            }
+
+            console.log("Nueva casa en calle: " + this.calle + " con nº: " + this.numero + " y CP: " + this.codigoPostal);
+        }
+
+        const casa1=new vivienda("Granada",1,18310); 
+        
+        console.log(casa1.imprimeCalle());
+        console.log(casa1.imprimeNumero());
+        console.log(casa1.imprimeCodigo());
+
+        //Actualizar datos de la casa
+
+        casa1.setNumero(11);
+        casa1.setCalle("Almeria"); 
+        casa1.setCodigoPostal(18300);
+
+        console.log(casa1.imprimeCalle());
+        console.log(casa1.imprimeNumero());
+        console.log(casa1.imprimeCodigo());
+
+    </script>
+</body>
+</html>

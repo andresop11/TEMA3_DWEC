@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //function constructora
+        function Usuario(dni,nombre,edad){
+            this.nombre=nombre; 
+            this.dni=dni; 
+            this.edad=edad; 
+
+            this.showMe=function() {
+                console.log(`DNI: ${this.dni} -- Nombre: ${this.nombre}`); 
+            }
+        }
+
+        let objUser1=new Usuario("77992952","Juan","21"); 
+        
+        console.log(objUser1); 
+
+        console.log(objUser1.dni); 
+        
+        objUser1.showMe(); 
+
+
+        const arrUsuarios=[
+            new Usuario("22222X","Pedro",15),
+            new Usuario("33333X","Pepe",23) 
+        ]; 
+         
+        const arrUsuario2=[];
+        arrUsuario2.push(new Usuario("22222X","Pedro",15),new Usuario("33333X","Pepe",23));
+
+
+        class Empleado{
+            constructor (codigo,nombre,telefono){
+                this.codigo=codigo; 
+                this.nombre=nombre;
+                this.telefono=telefono
+            }
+            muestraEmpleado(){
+                console.log("Empleado:"+this.codigo+"-"+this.nombre); 
+            }
+        }
+
+        let ObjEmp1=new Empleado(1,"Andres",665665665); 
+        console.log(ObjEmp1);
+
+        const arrEmp2=[]; 
+
+        arrEmp2.push(new Empleado(3,"Pepe",111111111), new Empleado(2,"Javier",222222222)); 
+        console.log(arrEmp2); 
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+</head>
+<body>
+
+       <script>
+        
+        const colegio = new Colegio("Colegio Concertado", 3);
+
+        colegio.alumnos.push(new Alumno(0, "Andres", 8));
+        colegio.alumnos.push(new Alumno(1, "Miriam", 9.4));
+        colegio.alumnos.push(new Alumno(2, "Ismael", 7.7));
+        colegio.alumnos.push(new Alumno(3, "Emma", 4,1));
+        colegio.alumnos.push(new Alumno(4, "Juana", 5,6));
+
+        console.log("Alumnos creados:");
+        colegio.alumnos.forEach(alumno => {
+            console.log(`ID: ${alumno.id}, Nombre: ${alumno.nombre}, Nota Media: ${alumno.media}`);
+        });
+
+        colegio.consultarMedia(0); 
+        colegio.consultarMedia(2); 
+        colegio.modificarMedia(1, 8.5); 
+        colegio.consultarMedia(1);
+        colegio.consultarMedia(10); 
+    </script>
+</body>
+</html>

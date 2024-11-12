@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function telefono(telefono){
+            this.telefono=telefono; 
+            this.llamadas=0; 
+
+            this.llamar = function(){
+                this.llamadas+=1; 
+                
+                console.log("Llamada realizada. Numero de llamadas: " + this.llamadas); 
+        }
+    }
+
+    const miTelefono = new telefono(610002437); 
+
+    console.log(miTelefono.telefono); 
+    console.log(miTelefono.llamadas); 
+
+    miTelefono.llamar(miTelefono); 
+    miTelefono.llamar(miTelefono); 
+
+    console.log(miTelefono.llamadas); 
+
+    
+    </script>
+</body>
+</html>
